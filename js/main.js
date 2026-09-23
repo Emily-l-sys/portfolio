@@ -110,4 +110,26 @@
   toTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // 主题切换：浅色为默认态，深色通过 data-theme="dark" 启用，localStorage 持久化
+  const themeToggle = document.getElementById("themeToggle");
+  const docEl = document.documentElement;
+
+  function syncThemeToggle() {
+    const isDark = docEl.getAttribute("data-theme") === "dark";
+    themeToggle.setAttribute("aria-label", isDark ? "切换为浅色主题" : "切换为深色主题");
+  }
+  syncThemeToggle();
+
+  themeToggle.addEventListener("click", () => {
+    const isDark = docEl.getAttribute("data-theme") === "dark";
+    if (isDark) {
+      docEl.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    } else {
+      docEl.setAttribute("data-theme", "dark");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    }
+    syncThemeToggle();
+  });
 })();

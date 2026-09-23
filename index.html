@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小明 · 个人作品集</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function(){
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch(e){}
+    })();
+  </script>
 </head>
 <body id="top">
   <header class="site-header">
@@ -14,7 +23,13 @@
       <a href="#about" class="nav-link"><sup>03</sup>关于</a>
       <a href="#contact" class="nav-link"><sup>04</sup>联系</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="打开菜单"><span></span><span></span></button>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅色主题" title="切换主题">
+        <span class="icon-sun">☀</span>
+        <span class="icon-moon">☾</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="打开菜单"><span></span><span></span></button>
+    </div>
   </header>
 
   <main>
