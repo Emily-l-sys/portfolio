@@ -1,0 +1,26 @@
+# 操作系统生成的临时文件
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+
+# 编辑器 / IDE 临时文件
+*.swp
+*.swo
+*~
+*.bak
+.vscode/
+.idea/
+
+# 日志文件
+*.log
+
+# 依赖目录（预防未来引入构建工具）
+node_modules/
+bower_components/
+
+# 构建输出
+dist/
+build/
+*.min.js
+*.min.css
